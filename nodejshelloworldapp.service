@@ -9,5 +9,5 @@ ExecStartPre=-/usr/bin/docker kill nodejshelloworld
 ExecStartPre=-/usr/bin/docker rm nodejshelloworld
 ExecStartPre=-/usr/bin/docker pull kidiyoor/centos6-nodejs-example
 
-ExecStart=/usr/bin/docker run --name -p 3001:3000 nodejshelloworld kidiyoor/centos6-nodejs-example /bin/sh -c "node /src/helloworld.js"
+ExecStart=/usr/bin/docker run --name nodejshelloworld -p 3001:3000 kidiyoor/centos6-nodejs-example /bin/sh -c "node /src/helloworld.js"
 ExecStop=/usr/bin/docker stop kidiyoor/centos6-nodejs-example
