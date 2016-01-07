@@ -5,8 +5,9 @@ Requires=docker.service
 
 [Service]
 TimeoutStartSec=0
-#ExecStartPre=-/usr/bin/docker kill kidiyoor/centos6/nodejs
-#ExecStartPre=-/usr/bin/docker rm kidiyoor/centos6/nodejs
-ExecStartPre=/usr/bin/docker pull centos:centos6
-ExecStart=/usr/bin/docker run --name nodejshelloworld kidiyoor/centos6/nodejs /bin/sh -c "node /src/helloworld.js"
-ExecStop=/usr/bin/docker stop kidiyoor/centos6/nodejs
+ExecStartPre=-/usr/bin/docker kill kidiyoor/centos6-nodejs-example
+ExecStartPre=-/usr/bin/docker rm kidiyoor/centos6-nodejs-example
+ExecStartPre=-/usr/bin/docker pull kidiyoor/centos6-nodejs-example
+
+ExecStart=/usr/bin/docker run --name nodejshelloworld kidiyoor/centos6-nodejs-example /bin/sh -c "node /src/helloworld.js"
+ExecStop=/usr/bin/docker stop kidiyoor/centos6-nodejs-example
