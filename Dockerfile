@@ -1,13 +1,10 @@
 FROM    centos:centos6
 
+COPY . /src
+
 RUN     yum install -y epel-release
 RUN     yum install -y nodejs npm
-
-#ENV APACHE_RUN_USER www-data
-#ENV APACHE_RUN_GROUP www-data
-#ENV APACHE_LOG_DIR /var/log/apache2
-
-COPY . /src
+RUN cd /src; npm install
 
 EXPOSE 3000
 
